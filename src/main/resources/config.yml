@@ -1,0 +1,61 @@
+# VoteRestart 插件配置文件
+# 投票重启插件 - 允许玩家投票重启服务器
+
+# 基础设置
+enabled: true                    # 是否启用插件功能
+require-permission: false        # 是否需要权限才能投票 (voterestart.vote)
+
+# 投票设置
+required-votes: 3               # 重启所需的投票数
+vote-time-limit: 60             # 投票时间限制（秒）
+allow-cancel-vote: true         # 是否允许取消投票
+
+# 重启设置
+restart-delay: 10               # 投票通过后的重启延迟（秒）
+
+# 显示设置
+broadcast-votes: true           # 是否广播每次投票
+
+# 配置说明:
+# enabled: 设置为 false 可以临时禁用插件功能
+# require-permission: 设置为 true 则只有有权限的玩家才能投票
+# required-votes: 达到此票数时自动执行重启
+# vote-time-limit: 投票的有效时间，超时后投票自动失效
+# allow-cancel-vote: 是否允许管理员取消正在进行的投票
+# restart-delay: 投票通过后等待多少秒再重启服务器
+# broadcast-votes: 是否向所有玩家广播投票信息
+
+# 权限节点:
+# voterestart.vote - 投票重启服务器
+# voterestart.start - 开始投票重启
+# voterestart.cancel - 取消投票重启
+# voterestart.status - 查看投票状态
+# voterestart.reload - 重新加载配置
+# voterestart.info - 查看插件信息
+# voterestart.admin - 管理员权限
+# voterestart.* - 所有权限
+
+# 使用方法:
+# /voterestart - 投票支持重启（如果没有投票则开始投票）
+# /voterestart start - 开始新的投票
+# /voterestart cancel - 取消当前投票（需要权限）
+# /voterestart status - 查看投票状态
+# /voterestart reload - 重新加载配置（需要权限）
+# /voterestart info - 查看插件信息
+
+# 命令别名:
+# /vr - /voterestart 的简短别名
+# /restart - /voterestart 的别名
+
+# 投票流程:
+# 1. 玩家使用 /voterestart 开始投票或投票支持
+# 2. 其他玩家使用 /voterestart 投票支持
+# 3. 达到所需票数时自动开始重启倒计时
+# 4. 倒计时结束后服务器重启
+# 5. 如果投票时间超时，投票自动失效
+
+# 特殊功能:
+# - 玩家离开服务器时，其投票会被自动移除
+# - 如果所有投票者都离开，投票会自动取消
+# - 支持实时显示投票进度和剩余时间
+# - 管理员可以随时取消投票（如果启用）

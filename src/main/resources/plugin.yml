@@ -1,0 +1,63 @@
+name: VoteRestart
+version: 1.0.0
+main: com.voterestart.VoteRestartPlugin
+api-version: "1.16"
+api: ["1.16", "1.17", "1.18", "1.19", "1.20"]
+author: YourName
+description: 投票重启插件 - 允许玩家投票重启服务器
+website: https://github.com/yourname/vote-restart
+
+commands:
+  voterestart:
+    description: 投票重启服务器
+    usage: /voterestart [start|cancel|status|reload|info]
+    aliases: [vr, restart]
+    permission: voterestart.vote
+
+permissions:
+  voterestart.vote:
+    description: 投票重启服务器
+    default: true
+  
+  voterestart.start:
+    description: 开始投票重启
+    default: true
+  
+  voterestart.cancel:
+    description: 取消投票重启
+    default: op
+  
+  voterestart.status:
+    description: 查看投票状态
+    default: true
+  
+  voterestart.reload:
+    description: 重新加载配置
+    default: op
+  
+  voterestart.info:
+    description: 查看插件信息
+    default: true
+  
+  voterestart.admin:
+    description: 管理员权限
+    default: op
+    children:
+      - voterestart.vote
+      - voterestart.start
+      - voterestart.cancel
+      - voterestart.status
+      - voterestart.reload
+      - voterestart.info
+  
+  voterestart.*:
+    description: 所有 VoteRestart 权限
+    default: op
+    children:
+      - voterestart.admin
+      - voterestart.vote
+      - voterestart.start
+      - voterestart.cancel
+      - voterestart.status
+      - voterestart.reload
+      - voterestart.info
